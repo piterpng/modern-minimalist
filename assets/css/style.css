@@ -179,6 +179,7 @@ body {
     font-weight: 600;
     letter-spacing: 0.5px;
     color: rgb(140 123 107);
+    text-transform: uppercase;
 }
 
 .section-header {
