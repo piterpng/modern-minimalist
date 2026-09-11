@@ -1,7 +1,17 @@
 const openInvitation = document.getElementById("openInvitation");
 const invitationContent = document.getElementById("invitationContent");
 
+document.body.classList.add("invitation-locked");
+
+window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+
+    document.body.classList.add("invitation-locked");
+});
+
 openInvitation.addEventListener("click", () => {
+
+    document.body.classList.remove("invitation-locked");
 
     invitationContent.scrollIntoView({
         behavior: "smooth"

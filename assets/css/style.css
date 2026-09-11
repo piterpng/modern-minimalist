@@ -16,6 +16,10 @@ body {
     background: #FDFBF7;
 }
 
+body.invitation-locked {
+    overflow: hidden;
+}
+
 /*STYLE UNTUK HERO/COVER*/
 .hero {
     position: relative;
