@@ -928,6 +928,209 @@ body.invitation-locked {
     color: #9A8F80;
 }
 
+/* ========================================
+   LOVE STORY - HORIZONTAL
+======================================== */
+
+.section-love-story {
+    padding: 110px 30px 120px;
+
+    background: #FDFBF7;
+
+    overflow: hidden;
+}
+
+
+/* TIMELINE */
+
+.love-timeline {
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 90px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+/* HORIZONTAL LINE */
+
+.love-timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 1px;
+
+    background: #D8CEC0;
+}
+
+
+/* ITEM */
+
+.love-story-item {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding-top: 0;
+}
+
+
+/* DOT */
+
+.love-story-point {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    height: 20px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+}
+
+.love-story-point span {
+    width: 13px;
+    height: 13px;
+
+    margin-top: -6px;
+
+    border: 3px solid #FDFBF7;
+
+    border-radius: 50%;
+
+    background: #D4C5A9;
+
+    box-shadow: 0 0 0 1px #D4C5A9;
+}
+
+
+/* YEAR */
+
+.love-story-year {
+    margin-top: 8px;
+    margin-bottom: 20px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+    color: #8C7B6B;
+}
+
+
+/* CONTENT */
+
+.love-story-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* PHOTO */
+
+.love-story-photo {
+    width: 125px;
+    height: 160px;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    border-radius: 70px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.love-story-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* LABEL */
+
+.love-story-label {
+    margin-bottom: 8px;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    color: #B19C82;
+}
+
+
+/* TITLE */
+
+.love-story-content h3 {
+    margin-bottom: 10px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    color: #292929;
+}
+
+
+/* DESCRIPTION */
+
+.love-story-content p {
+    max-width: 220px;
+
+    margin: 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color: #666;
+}
+
 /*END CONTENT QUOTE*/
 
 /* ========================================
@@ -1257,6 +1460,126 @@ body.invitation-locked {
         letter-spacing: 1.4px;
     }
 
+    .section-love-story {
+        padding: 90px 0 100px;
+
+        overflow: hidden;
+    }
+
+
+    /* WRAPPER */
+    .love-timeline-wrapper {
+        width: 100%;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-snap-type: x mandatory;
+
+        scroll-behavior: smooth;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+    .love-timeline-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* TIMELINE */
+    .love-timeline {
+        width: max-content;
+
+        max-width: none;
+
+        margin: 80px 0 0;
+
+        padding: 0;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 50vw);
+
+        gap: 0;
+    }
+
+
+    /* ITEM */
+    .love-story-item {
+        width: 50vw;
+
+        padding: 0 25px;
+
+        scroll-snap-align: start;
+
+        scroll-snap-stop: always;
+    }
+
+
+    /* GARIS */
+    .love-timeline::before {
+        left: 0;
+        right: auto;
+
+        width: 200vw;
+    }
+
+
+    /* DOT */
+    .love-story-point {
+        width: 100%;
+
+        height: 20px;
+    }
+
+
+    /* YEAR */
+    .love-story-year {
+        margin-top: 8px;
+        margin-bottom: 20px;
+
+        font-size: 25px;
+    }
+
+
+    /* PHOTO */
+    .love-story-photo {
+        width: 120px;
+        height: 155px;
+
+        margin-bottom: 18px;
+
+        border-radius: 65px;
+    }
+
+
+    /* LABEL */
+    .love-story-label {
+        font-size: 10px;
+
+        letter-spacing: 1.6px;
+    }
+
+
+    /* TITLE */
+    .love-story-content h3 {
+        font-size: 27px;
+
+        margin-bottom: 10px;
+    }
+
+
+    /* DESCRIPTION */
+    .love-story-content p {
+        max-width: 220px;
+
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
 }
 
 /* ========================================
@@ -1562,6 +1885,125 @@ body.invitation-locked {
         letter-spacing: 1.3px;
     }
 
+    .section-love-story {
+        padding: 80px 0 90px;
+
+        overflow: hidden;
+    }
+
+
+    /* WRAPPER */
+    .love-timeline-wrapper {
+        width: 100%;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-snap-type: x mandatory;
+
+        scroll-behavior: smooth;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+    .love-timeline-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* TIMELINE */
+    .love-timeline {
+        width: max-content;
+
+        max-width: none;
+
+        margin: 65px 0 0;
+
+        padding: 0;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 100vw);
+
+        gap: 0;
+    }
+
+
+    /* ITEM */
+    .love-story-item {
+        width: 100vw;
+
+        padding: 0 30px;
+
+        scroll-snap-align: center;
+
+        scroll-snap-stop: always;
+    }
+
+
+    /* GARIS */
+    .love-timeline::before {
+        left: 0;
+        right: 0;
+
+        width: 400vw;
+    }
+
+
+    /* DOT */
+    .love-story-point {
+        width: 100%;
+
+        height: 20px;
+    }
+
+
+    /* YEAR */
+    .love-story-year {
+        margin-top: 8px;
+
+        margin-bottom: 20px;
+
+        font-size: 26px;
+    }
+
+
+    /* PHOTO */
+    .love-story-photo {
+        width: 130px;
+        height: 165px;
+
+        margin-bottom: 18px;
+
+        border-radius: 70px;
+    }
+
+
+    /* LABEL */
+    .love-story-label {
+        font-size: 9px;
+
+        letter-spacing: 1.6px;
+    }
+
+
+    /* TITLE */
+    .love-story-content h3 {
+        font-size: 28px;
+    }
+
+
+    /* DESCRIPTION */
+    .love-story-content p {
+        max-width: 280px;
+
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
 }
 
 
@@ -1795,4 +2237,61 @@ body.invitation-locked {
         letter-spacing: 1px;
     }
 
+    .section-love-story {
+        padding: 70px 0 80px;
+    }
+
+
+    .love-timeline {
+        grid-template-columns: repeat(4, 100vw);
+
+        margin-top: 55px;
+    }
+
+
+    .love-story-item {
+        width: 100vw;
+
+        padding: 0 25px;
+    }
+
+
+    .love-story-photo {
+        width: 115px;
+        height: 150px;
+
+        margin-bottom: 16px;
+
+        border-radius: 65px;
+    }
+
+
+    .love-story-year {
+        font-size: 24px;
+
+        margin-bottom: 17px;
+    }
+
+
+    .love-story-label {
+        font-size: 8px;
+
+        letter-spacing: 1.4px;
+    }
+
+
+    .love-story-content h3 {
+        font-size: 25px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .love-story-content p {
+        max-width: 250px;
+
+        font-size: 11px;
+
+        line-height: 1.65;
+    }
 }
