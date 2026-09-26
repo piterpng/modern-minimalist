@@ -928,9 +928,9 @@ body.invitation-locked {
     color: #9A8F80;
 }
 
-/* ========================================
-   LOVE STORY - HORIZONTAL
-======================================== */
+/*END QUOTE CONTENT*/
+
+/*LOVE STORY - HORIZONTAL*/
 
 .section-love-story {
     padding: 110px 30px 120px;
@@ -940,8 +940,6 @@ body.invitation-locked {
     overflow: hidden;
 }
 
-
-/* TIMELINE */
 
 .love-timeline {
     position: relative;
@@ -958,9 +956,6 @@ body.invitation-locked {
     gap: 20px;
 }
 
-
-/* HORIZONTAL LINE */
-
 .love-timeline::before {
     content: "";
 
@@ -974,9 +969,6 @@ body.invitation-locked {
 
     background: #D8CEC0;
 }
-
-
-/* ITEM */
 
 .love-story-item {
     position: relative;
@@ -992,8 +984,6 @@ body.invitation-locked {
     padding-top: 0;
 }
 
-
-/* DOT */
 
 .love-story-point {
     position: relative;
@@ -1027,8 +1017,6 @@ body.invitation-locked {
 }
 
 
-/* YEAR */
-
 .love-story-year {
     margin-top: 8px;
     margin-bottom: 20px;
@@ -1043,8 +1031,6 @@ body.invitation-locked {
 }
 
 
-/* CONTENT */
-
 .love-story-content {
     display: flex;
 
@@ -1055,8 +1041,6 @@ body.invitation-locked {
     text-align: center;
 }
 
-
-/* PHOTO */
 
 .love-story-photo {
     width: 125px;
@@ -1080,9 +1064,6 @@ body.invitation-locked {
     object-fit: cover;
 }
 
-
-/* LABEL */
-
 .love-story-label {
     margin-bottom: 8px;
 
@@ -1097,8 +1078,6 @@ body.invitation-locked {
     color: #B19C82;
 }
 
-
-/* TITLE */
 
 .love-story-content h3 {
     margin-bottom: 10px;
@@ -1115,8 +1094,6 @@ body.invitation-locked {
 }
 
 
-/* DESCRIPTION */
-
 .love-story-content p {
     max-width: 220px;
 
@@ -1131,7 +1108,79 @@ body.invitation-locked {
     color: #666;
 }
 
-/*END CONTENT QUOTE*/
+.love-timeline-dots {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.love-dot-slide {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #D8CEC0;
+
+    cursor: pointer;
+
+    transition: width 0.25s ease,
+    background 0.25s ease;
+}
+
+.love-dot-slide.active {
+    width: 20px;
+
+    border-radius: 10px;
+
+    background: #B19C82;
+}
+
+.love-timeline-dots {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.love-dot-slide {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #D8CEC0;
+
+    cursor: pointer;
+
+    transition: width 0.25s ease,
+    background 0.25s ease;
+}
+
+.love-dot-slide.active {
+    width: 20px;
+
+    border-radius: 10px;
+
+    background: #B19C82;
+}
+
+/*END CONTENT TIMELINE*/
 
 /* ========================================
    TABLET
@@ -1505,8 +1554,6 @@ body.invitation-locked {
         gap: 0;
     }
 
-
-    /* ITEM */
     .love-story-item {
         width: 50vw;
 
@@ -1517,8 +1564,6 @@ body.invitation-locked {
         scroll-snap-stop: always;
     }
 
-
-    /* GARIS */
     .love-timeline::before {
         left: 0;
         right: auto;
@@ -1526,16 +1571,12 @@ body.invitation-locked {
         width: 200vw;
     }
 
-
-    /* DOT */
     .love-story-point {
         width: 100%;
 
         height: 20px;
     }
 
-
-    /* YEAR */
     .love-story-year {
         margin-top: 8px;
         margin-bottom: 20px;
@@ -1543,8 +1584,6 @@ body.invitation-locked {
         font-size: 25px;
     }
 
-
-    /* PHOTO */
     .love-story-photo {
         width: 120px;
         height: 155px;
@@ -1554,30 +1593,33 @@ body.invitation-locked {
         border-radius: 65px;
     }
 
-
-    /* LABEL */
     .love-story-label {
         font-size: 10px;
 
         letter-spacing: 1.6px;
     }
 
-
-    /* TITLE */
     .love-story-content h3 {
         font-size: 27px;
 
         margin-bottom: 10px;
     }
 
-
-    /* DESCRIPTION */
     .love-story-content p {
         max-width: 220px;
 
         font-size: 12px;
 
         line-height: 1.7;
+    }
+
+    .love-timeline-dots {
+        display: flex;
+    }
+
+    .love-dot-slide:nth-child(3),
+    .love-dot-slide:nth-child(4) {
+        display: none;
     }
 
 }
@@ -1930,8 +1972,6 @@ body.invitation-locked {
         gap: 0;
     }
 
-
-    /* ITEM */
     .love-story-item {
         width: 100vw;
 
@@ -1942,8 +1982,6 @@ body.invitation-locked {
         scroll-snap-stop: always;
     }
 
-
-    /* GARIS */
     .love-timeline::before {
         left: 0;
         right: 0;
@@ -1951,16 +1989,12 @@ body.invitation-locked {
         width: 400vw;
     }
 
-
-    /* DOT */
     .love-story-point {
         width: 100%;
 
         height: 20px;
     }
 
-
-    /* YEAR */
     .love-story-year {
         margin-top: 8px;
 
@@ -1969,8 +2003,6 @@ body.invitation-locked {
         font-size: 26px;
     }
 
-
-    /* PHOTO */
     .love-story-photo {
         width: 130px;
         height: 165px;
@@ -1980,28 +2012,26 @@ body.invitation-locked {
         border-radius: 70px;
     }
 
-
-    /* LABEL */
     .love-story-label {
         font-size: 9px;
 
         letter-spacing: 1.6px;
     }
 
-
-    /* TITLE */
     .love-story-content h3 {
         font-size: 28px;
     }
 
-
-    /* DESCRIPTION */
     .love-story-content p {
         max-width: 280px;
 
         font-size: 12px;
 
         line-height: 1.7;
+    }
+
+    .love-timeline-dots {
+        display: flex;
     }
 
 }
@@ -2293,5 +2323,9 @@ body.invitation-locked {
         font-size: 11px;
 
         line-height: 1.65;
+    }
+
+    .love-timeline-dots {
+        display: flex;
     }
 }

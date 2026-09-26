@@ -116,3 +116,31 @@ const countdown = setInterval(() => {
         String(seconds).padStart(2, "0");
 
 }, 1000);
+
+const timelineWrapper = document.querySelector(".love-timeline-wrapper");
+const timelineItems = document.querySelectorAll(".love-story-item");
+const timelineDots = document.querySelectorAll(".love-dot-slide");
+
+function updateTimelineDots() {
+
+    const scrollLeft = timelineWrapper.scrollLeft;
+
+    const itemWidth = timelineItems[0].offsetWidth;
+
+    const currentSlide = Math.round(
+        scrollLeft / itemWidth
+    );
+
+    timelineDots.forEach((dot, index) => {
+        dot.classList.toggle(
+            "active",
+            index === currentSlide
+        );
+    });
+
+}
+
+timelineWrapper.addEventListener(
+    "scroll",
+    updateTimelineDots
+);
