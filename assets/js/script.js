@@ -144,3 +144,253 @@ timelineWrapper.addEventListener(
     "scroll",
     updateTimelineDots
 );
+
+const galleryWrapper = document.querySelector(".gallery-wrapper");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryDots = document.querySelectorAll(".gallery-dot");
+
+function updateGalleryDots() {
+
+    if (!galleryWrapper || !galleryItems.length) {
+        return;
+    }
+
+    const scrollLeft = galleryWrapper.scrollLeft;
+
+    const itemWidth =
+        galleryItems[0].offsetWidth +
+        parseFloat(getComputedStyle(
+            document.querySelector(".gallery-track")
+        ).gap);
+
+    const currentIndex =
+        Math.round(scrollLeft / itemWidth);
+
+    galleryDots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentIndex
+        );
+
+    });
+}
+
+
+galleryWrapper.addEventListener(
+    "scroll",
+    updateGalleryDots
+);
+
+
+galleryDots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+        const item = galleryItems[index];
+
+        if (!item) {
+            return;
+        }
+
+        galleryWrapper.scrollTo({
+            left: item.offsetLeft -
+                galleryWrapper.offsetLeft,
+
+            behavior: "smooth"
+        });
+
+    });
+
+});
+
+const galleryLightbox =
+    document.querySelector("#galleryLightbox");
+
+const lightboxImage =
+    document.querySelector("#lightboxImage");
+
+const lightboxClose =
+    document.querySelector("#lightboxClose");
+
+const lightboxPrev =
+    document.querySelector("#lightboxPrev");
+
+const lightboxNext =
+    document.querySelector("#lightboxNext");
+
+
+let lightboxIndex = 0;
+
+
+/* ========================================
+   OPEN LIGHTBOX
+======================================== */
+
+galleryItems.forEach((item, index) => {
+
+    item.addEventListener("click", () => {
+
+        lightboxIndex = index;
+
+        openLightbox();
+
+    });
+
+});
+
+
+function openLightbox() {
+
+    const image =
+        galleryItems[lightboxIndex]
+            .querySelector("img");
+
+    if (!image) {
+        return;
+    }
+
+    lightboxImage.src =
+        image.src;
+
+    lightboxImage.alt =
+        image.alt || "Wedding gallery";
+
+    galleryLightbox.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* ========================================
+   CLOSE
+======================================== */
+
+function closeLightbox() {
+
+    galleryLightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+/* ========================================
+   PREVIOUS
+======================================== */
+
+lightboxPrev.addEventListener(
+    "click",
+    (event) => {
+
+        event.stopPropagation();
+
+        lightboxIndex--;
+
+        if (lightboxIndex < 0) {
+
+            lightboxIndex =
+                galleryItems.length - 1;
+
+        }
+
+        openLightbox();
+
+    }
+);
+
+
+/* ========================================
+   NEXT
+======================================== */
+
+lightboxNext.addEventListener(
+    "click",
+    (event) => {
+
+        event.stopPropagation();
+
+        lightboxIndex++;
+
+        if (
+            lightboxIndex >=
+            galleryItems.length
+        ) {
+
+            lightboxIndex = 0;
+
+        }
+
+        openLightbox();
+
+    }
+);
+
+
+/* ========================================
+   CLICK BACKGROUND
+======================================== */
+
+galleryLightbox.addEventListener(
+    "click",
+    (event) => {
+
+        if (
+            event.target ===
+            galleryLightbox
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+/* ========================================
+   KEYBOARD
+======================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            !galleryLightbox.classList.contains(
+                "active"
+            )
+        ) {
+            return;
+        }
+
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            lightboxPrev.click();
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            lightboxNext.click();
+
+        }
+
+    }
+);
