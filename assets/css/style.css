@@ -2008,8 +2008,6 @@ img {
 
 
     .section-video {
-        min-height: auto;
-
         padding: 90px 30px 100px;
     }
 
@@ -2520,8 +2518,6 @@ img {
     }
 
     .section-video {
-        min-height: auto;
-
         padding: 80px 20px 90px;
     }
 

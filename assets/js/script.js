@@ -145,6 +145,7 @@ timelineWrapper.addEventListener(
     updateTimelineDots
 );
 
+//Gallery
 const galleryWrapper = document.querySelector(".gallery-wrapper");
 const galleryItems = document.querySelectorAll(".gallery-item");
 const galleryDots = document.querySelectorAll(".gallery-dot");
@@ -204,6 +205,89 @@ galleryDots.forEach((dot, index) => {
 
 });
 
+const prevGalleryButton =
+    document.querySelector(".gallery-prev");
+
+const nextGalleryButton =
+    document.querySelector(".gallery-next");
+
+
+function getCurrentGalleryIndex() {
+
+    const scrollLeft =
+        galleryWrapper.scrollLeft;
+
+    const itemWidth =
+        galleryItems[0].offsetWidth +
+        parseFloat(
+            getComputedStyle(
+                document.querySelector(".gallery-track")
+            ).gap
+        );
+
+    return Math.round(
+        scrollLeft / itemWidth
+    );
+}
+
+prevGalleryButton?.addEventListener(
+    "click",
+    () => {
+
+        let currentIndex =
+            getCurrentGalleryIndex();
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex =
+                galleryItems.length - 1;
+        }
+
+        const item =
+            galleryItems[currentIndex];
+
+        galleryWrapper.scrollTo({
+            left:
+                item.offsetLeft -
+                galleryWrapper.offsetLeft,
+
+            behavior: "smooth"
+        });
+
+    }
+);
+
+nextGalleryButton?.addEventListener(
+    "click",
+    () => {
+
+        let currentIndex =
+            getCurrentGalleryIndex();
+
+        currentIndex++;
+
+        if (
+            currentIndex >=
+            galleryItems.length
+        ) {
+            currentIndex = 0;
+        }
+
+        const item =
+            galleryItems[currentIndex];
+
+        galleryWrapper.scrollTo({
+            left:
+                item.offsetLeft -
+                galleryWrapper.offsetLeft,
+
+            behavior: "smooth"
+        });
+
+    }
+);
+
 const galleryLightbox =
     document.querySelector("#galleryLightbox");
 
@@ -222,11 +306,7 @@ const lightboxNext =
 
 let lightboxIndex = 0;
 
-
-/* ========================================
-   OPEN LIGHTBOX
-======================================== */
-
+// lightbox
 galleryItems.forEach((item, index) => {
 
     item.addEventListener("click", () => {
@@ -262,11 +342,6 @@ function openLightbox() {
 
 }
 
-
-/* ========================================
-   CLOSE
-======================================== */
-
 function closeLightbox() {
 
     galleryLightbox.classList.remove("active");
@@ -280,11 +355,6 @@ lightboxClose.addEventListener(
     "click",
     closeLightbox
 );
-
-
-/* ========================================
-   PREVIOUS
-======================================== */
 
 lightboxPrev.addEventListener(
     "click",
@@ -306,10 +376,6 @@ lightboxPrev.addEventListener(
     }
 );
 
-
-/* ========================================
-   NEXT
-======================================== */
 
 lightboxNext.addEventListener(
     "click",
@@ -333,10 +399,6 @@ lightboxNext.addEventListener(
     }
 );
 
-
-/* ========================================
-   CLICK BACKGROUND
-======================================== */
 
 galleryLightbox.addEventListener(
     "click",
