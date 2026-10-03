@@ -1,3 +1,82 @@
+const weddingMusic =
+    document.querySelector("#weddingMusic");
+
+const musicToggle =
+    document.querySelector("#musicToggle");
+
+const musicIcon =
+    musicToggle.querySelector("i");
+
+
+let musicPlaying = false;
+
+function playMusic() {
+
+    weddingMusic.play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            musicToggle.classList.add(
+                "playing"
+            );
+
+            musicIcon.className =
+                "fa-solid fa-volume-high";
+
+            musicToggle.setAttribute(
+                "aria-label",
+                "Mute music"
+            );
+
+        })
+        .catch(() => {
+
+            console.log(
+                "Music playback was blocked."
+            );
+
+        });
+
+}
+
+function pauseMusic() {
+
+    weddingMusic.pause();
+
+    musicPlaying = false;
+
+    musicToggle.classList.remove(
+        "playing"
+    );
+
+    musicIcon.className =
+        "fa-solid fa-volume-xmark";
+
+    musicToggle.setAttribute(
+        "aria-label",
+        "Play music"
+    );
+
+}
+
+musicToggle.addEventListener(
+    "click",
+    () => {
+
+        if (musicPlaying) {
+
+            pauseMusic();
+
+        } else {
+
+            playMusic();
+
+        }
+
+    }
+);
+
 const openInvitation = document.getElementById("openInvitation");
 const invitationContent = document.getElementById("invitationContent");
 
@@ -16,6 +95,8 @@ openInvitation.addEventListener("click", () => {
     invitationContent.scrollIntoView({
         behavior: "smooth"
     });
+
+    playMusic();
 
 });
 
