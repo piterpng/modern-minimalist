@@ -95,6 +95,8 @@ openInvitation.addEventListener("click", () => {
     invitationContent.scrollIntoView({
         behavior: "smooth"
     });
+    
+    musicToggle.classList.add("show");
 
     playMusic();
 
