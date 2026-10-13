@@ -1700,6 +1700,232 @@ img {
     font-size: 10px;
 }
 
+/*WEDDING WISHES CONTENT*/
+.wedding-wishes {
+    background: #FAF7F0;
+}
+
+/* Main Container */
+.wishes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    text-align: start;
+}
+
+/* Form */
+.wishes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e9e3da;
+    border-radius: 6px;
+}
+
+.wishes-form h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #1A1A1A;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+
+.form-group > label,
+.attendance-group legend {
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1A1A1A;
+}
+
+/* Input & Textarea */
+.wishes-form input[type="text"],
+.wishes-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #292929;
+    background-color: #fdfbf8;
+    border: 1px solid #ece5dc;
+    border-radius: 3px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.wishes-form input[type="text"] {
+    height: 40px;
+}
+
+.wishes-form textarea {
+    min-height: 92px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.wishes-form input[type="text"]:focus,
+.wishes-form textarea:focus {
+    border-color: #b9a58b;
+}
+
+.wishes-form input::placeholder,
+.wishes-form textarea::placeholder {
+    color: #85817d;
+    opacity: 1;
+}
+
+/* Attendance */
+.attendance-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+.attendance-group legend {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.radio-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    color: #77736f;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    width: 13px;
+    height: 13px;
+    margin: 0;
+    accent-color: #222222;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.wishes-submit {
+    width: 100%;
+    margin-top: 0;
+    padding: 14px 24px;
+    border: 1px solid #1d1d1d;
+    border-radius: 4px;
+    background-color: #1d1d1d;
+    color: #ffffff;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.wishes-submit:hover {
+    background-color: #ffffff;
+    color: #1d1d1d;
+}
+
+/* Recent Wishes */
+.recent-wishes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.recent-wishes-title {
+    margin: 2px 0 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: #8C7B6B;
+    text-transform: uppercase;
+}
+
+.recent-wishes-title span {
+    font-weight: 600;
+}
+
+/* Wishes List */
+.wishes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 370px;
+    overflow-y: auto;
+    padding-right: 3px;
+}
+
+/* Individual Wishes Card */
+.wishes-card {
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #e9e3da;
+    border-radius: 7px;
+}
+
+.wishes-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.wishes-author {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.attendance-status {
+    flex-shrink: 0;
+    padding: 4px 7px;
+    border-radius: 3px;
+    background-color: #e5efd9;
+    color: #45613a;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.wishes-message {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666666;
+    overflow-wrap: anywhere;
+}
+
 /* ========================================
    TABLET
 ======================================== */
@@ -2232,6 +2458,71 @@ img {
         max-width: 650px;
 
         padding: 70px 30px 70px;
+    }
+
+    /*Wishes*/
+    .wishes-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        max-width: 900px;
+        margin-top: 32px;
+    }
+
+    .wishes-form {
+        gap: 18px;
+        padding: 24px;
+    }
+
+    .wishes-form h3 {
+        font-size: 26px;
+    }
+
+    .form-group > label,
+    .attendance-group legend {
+        font-size: 12px;
+    }
+
+    .wishes-form input[type="text"],
+    .wishes-form textarea {
+        font-size: 12px;
+    }
+
+    .attendance-group {
+        column-gap: 14px;
+        row-gap: 10px;
+    }
+
+    .radio-option {
+        font-size: 10px;
+    }
+
+    .wishes-submit {
+        padding: 12px 20px;
+        font-size: 11px;
+    }
+
+    .recent-wishes-title {
+        font-size: 12px;
+    }
+
+    .wishes-card {
+        padding: 14px;
+    }
+
+    .wishes-author {
+        font-size: 12px;
+    }
+
+    .attendance-status {
+        font-size: 9px;
+    }
+
+    .wishes-message {
+        font-size: 11px;
+    }
+
+    .wishes-list {
+        max-height: 340px;
     }
 
 }
@@ -2805,6 +3096,84 @@ img {
     }
 
 
+    /*Wishes*/
+    .wishes-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        width: 100%;
+        max-width: 560px;
+        margin: 30px auto 0;
+    }
+
+    .wishes-form {
+        gap: 20px;
+        padding: 26px;
+    }
+
+    .wishes-form h3 {
+        font-size: 26px;
+    }
+
+    .form-group > label,
+    .attendance-group legend {
+        font-size: 12px;
+    }
+
+    .wishes-form input[type="text"],
+    .wishes-form textarea {
+        font-size: 12px;
+    }
+
+    .wishes-form input[type="text"] {
+        height: 42px;
+    }
+
+    .wishes-form textarea {
+        min-height: 120px;
+    }
+
+    .attendance-group {
+        column-gap: 20px;
+        row-gap: 12px;
+    }
+
+    .radio-option {
+        font-size: 11px;
+    }
+
+    .wishes-submit {
+        padding: 14px 20px;
+        font-size: 11px;
+    }
+
+    .recent-wishes {
+        gap: 14px;
+    }
+
+    .recent-wishes-title {
+        font-size: 12px;
+    }
+
+    .wishes-list {
+        max-height: 350px;
+        gap: 12px;
+    }
+
+    .wishes-card {
+        padding: 16px;
+    }
+
+    .wishes-author {
+        font-size: 13px;
+    }
+
+    .attendance-status {
+        font-size: 9px;
+    }
+
+    .wishes-message {
+        font-size: 11px;
+    }
 }
 
 
@@ -3192,6 +3561,108 @@ img {
 
     .stream-date {
         font-size: 9px;
+    }
+
+    /*Wishes*/
+    .wishes-container {
+        gap: 28px;
+        margin-top: 24px;
+    }
+
+    .wishes-form {
+        gap: 18px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .wishes-form h3 {
+        font-size: 24px;
+    }
+
+    .form-group {
+        gap: 8px;
+    }
+
+    .form-group > label,
+    .attendance-group legend {
+        font-size: 11px;
+    }
+
+    .wishes-form input[type="text"],
+    .wishes-form textarea {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .wishes-form input[type="text"] {
+        height: 40px;
+    }
+
+    .wishes-form textarea {
+        min-height: 110px;
+    }
+
+    .attendance-group {
+        column-gap: 16px;
+        row-gap: 12px;
+    }
+
+    .attendance-group legend {
+        margin-bottom: 4px;
+    }
+
+    .radio-option {
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .radio-option input[type="radio"] {
+        width: 13px;
+        height: 13px;
+    }
+
+    .wishes-submit {
+        padding: 13px 16px;
+        font-size: 10px;
+    }
+
+    .recent-wishes {
+        gap: 12px;
+    }
+
+    .recent-wishes-title {
+        font-size: 11px;
+    }
+
+    .wishes-list {
+        max-height: 320px;
+        gap: 10px;
+    }
+
+    .wishes-card {
+        padding: 13px;
+        border-radius: 6px;
+    }
+
+    .wishes-card-header {
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .wishes-author {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .attendance-status {
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+
+    .wishes-message {
+        font-size: 10px;
+        line-height: 1.7;
     }
 
 }
