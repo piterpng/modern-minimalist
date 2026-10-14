@@ -95,7 +95,7 @@ openInvitation.addEventListener("click", () => {
     invitationContent.scrollIntoView({
         behavior: "smooth"
     });
-    
+
     musicToggle.classList.add("show");
 
     playMusic();
@@ -539,3 +539,148 @@ document.addEventListener(
 
     }
 );
+
+// FORM WISHES
+// Google Apps Script Web App URL
+// const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZRI2b5XbR-q97_v5bcIox9WaNzuSI6xtQNbx1iure_t07Z3LwGroPiPvsD5297a-e/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTklxXZlGkiLiSKuNUyh_l2KSTi4biKvN-LxOMgU7X2J7xPUUbC0RV_3vSYYBy7MPwMQ/exec";
+
+// Ambil elemen HTML
+const form = document.querySelector(".wishes-form");
+const feedContainer = document.querySelector(".wishes-list");
+const submitBtn = document.querySelector(".wishes-submit");
+const wishesCount = document.querySelector(".recent-wishes-title span");
+
+// Sanitasi teks dengan textContent saat membuat elemen
+function createTextElement(tag, className, text) {
+    const element = document.createElement(tag);
+    element.className = className;
+    element.textContent = text ?? "";
+    return element;
+}
+
+// Render daftar ucapan
+function renderWishes(dataArray) {
+    feedContainer.replaceChildren();
+
+    if (!Array.isArray(dataArray) || dataArray.length === 0) {
+        feedContainer.appendChild(
+            createTextElement("p", "empty-wishes", "No wishes yet. Be the first to send one!")
+        );
+
+        if (wishesCount) wishesCount.textContent = "(0)";
+        return;
+    }
+
+    // Tampilkan ucapan terbaru terlebih dahulu
+    const wishes = [...dataArray].reverse();
+
+    wishes.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "wishes-card";
+
+        const header = document.createElement("div");
+        header.className = "wishes-card-header";
+
+        const author = createTextElement(
+            "h4",
+            "wishes-author",
+            item.nama
+        );
+
+        const status = createTextElement(
+            "span",
+            "attendance-status",
+            item.kehadiran
+        );
+
+        const message = createTextElement(
+            "p",
+            "wishes-message",
+            item.pesan
+        );
+
+        header.append(author, status);
+        card.append(header, message);
+        feedContainer.appendChild(card);
+    });
+
+    if (wishesCount) {
+        wishesCount.textContent = `(${dataArray.length})`;
+    }
+}
+
+// Ambil ucapan dari Google Sheets
+async function fetchWishes() {
+    feedContainer.setAttribute("aria-busy", "true");
+
+    try {
+        const response = await fetch(SCRIPT_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        renderWishes(data);
+    } catch (error) {
+        console.error("Gagal memuat ucapan:", error);
+
+        feedContainer.replaceChildren(
+            createTextElement(
+                "p",
+                "empty-wishes",
+                "Unable to load wishes. Please try again later."
+            )
+        );
+    } finally {
+        feedContainer.removeAttribute("aria-busy");
+    }
+}
+
+// Kirim ucapan ke Google Sheets
+form.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "SENDING...";
+
+    const formData = new FormData(form);
+
+    // Gunakan nama field yang diharapkan Google Apps Script
+    const requestData = new URLSearchParams({
+        nama: formData.get("name").trim(),
+        kehadiran: formData.get("attendance"),
+        pesan: formData.get("wishes").trim()
+    });
+
+    try {
+        // no-cors menghindari pembacaan respons lintas origin.
+        // Responsnya opaque, sehingga tidak bisa memastikan
+        // apakah Apps Script berhasil menyimpan data.
+        await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: requestData
+        });
+
+        form.reset();
+        submitBtn.textContent = "SENT!";
+
+        // Beri waktu agar data tersimpan sebelum mengambil ulang.
+        await new Promise(resolve => setTimeout(resolve, 1200));
+        await fetchWishes();
+
+    } catch (error) {
+        console.error("Gagal mengirim ucapan:", error);
+        alert("Gagal mengirim ucapan. Silakan periksa koneksi internet.");
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
+});
+
+// Muat ucapan saat halaman dibuka
+fetchWishes();
