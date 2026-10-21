@@ -684,3 +684,83 @@ form.addEventListener("submit", async event => {
 
 // Muat ucapan saat halaman dibuka
 fetchWishes();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector("#floatingNavbar");
+    const hero = document.querySelector("#hero");
+    const navItems = document.querySelectorAll(
+        ".floating-navbar .nav-item"
+    );
+
+    if (!navbar || !hero) return;
+
+    // Hide navbar while hero is visible
+    const heroObserver = new IntersectionObserver(
+        ([entry]) => {
+            navbar.classList.toggle(
+                "is-visible",
+                !entry.isIntersecting
+            );
+        },
+        {
+            threshold: 0.05
+        }
+    );
+
+    heroObserver.observe(hero);
+
+    // Smooth scrolling when a navigation item is clicked
+    navItems.forEach((item) => {
+        item.addEventListener("click", (event) => {
+            const target = document.querySelector(
+                item.getAttribute("href")
+            );
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    });
+
+    // Mark the current section as active
+    const sections = [...navItems]
+        .map((item) => document.querySelector(item.getAttribute("href")))
+        .filter(Boolean);
+
+    const sectionObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                navItems.forEach((item) => {
+                    const isActive =
+                        item.getAttribute("href") ===
+                        `#${entry.target.id}`;
+
+                    item.classList.toggle("active", isActive);
+
+                    if (isActive) {
+                        item.setAttribute("aria-current", "location");
+                    } else {
+                        item.removeAttribute("aria-current");
+                    }
+                });
+            });
+        },
+        {
+            rootMargin: "-30% 0px -55% 0px",
+            threshold: 0
+        }
+    );
+
+    sections.forEach((section) => {
+        sectionObserver.observe(section);
+    });
+});
+

@@ -11,8 +11,74 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
 </head>
 <body class="invitation-locked">
+
+<button
+        class="navbar-toggle"
+        id="navbarToggle"
+        type="button"
+        aria-label="Sembunyikan navigasi"
+        aria-expanded="true"
+>
+    <span class="material-symbols-outlined" id="toggleIcon">
+        chevron_right
+    </span>
+</button>
+
+<!-- FLOATING BOTTOM NAVBAR -->
+<nav class="floating-navbar" id="floatingNavbar"
+     aria-label="Wedding navigation">
+
+    <a href="#profile" class="nav-item" aria-label="Couple">
+        <span class="material-symbols-outlined">favorite</span>
+        <span class="nav-label">Couple</span>
+    </a>
+
+    <a href="#schedule" class="nav-item" aria-label="Schedule">
+        <span class="material-symbols-outlined">calendar_month</span>
+        <span class="nav-label">Event</span>
+    </a>
+
+    <a href="#maps" class="nav-item" aria-label="Maps">
+        <span class="material-symbols-outlined">location_on</span>
+        <span class="nav-label">Location</span>
+    </a>
+
+    <a href="#counting" class="nav-item" aria-label="Counting">
+        <span class="material-symbols-outlined">timer</span>
+        <span class="nav-label">Counting</span>
+    </a>
+    <a href="#stream" class="nav-item" aria-label="Streaming">
+        <span class="material-symbols-outlined">live_tv</span>
+        <span class="nav-label">Stream</span>
+    </a>
+
+    <a href="#story" class="nav-item" aria-label="Love Story">
+        <span class="material-symbols-outlined">auto_stories</span>
+        <span class="nav-label">Story</span>
+    </a>
+
+    <a href="#gallery" class="nav-item" aria-label="Gallery">
+        <span class="material-symbols-outlined">photo_library</span>
+        <span class="nav-label">Gallery</span>
+    </a>
+
+    <a href="#wish" class="nav-item" aria-label="Wedding Wishes">
+        <span class="material-symbols-outlined">mail</span>
+        <span class="nav-label">Wishes</span>
+    </a>
+
+    <a href="#gift" class="nav-item" aria-label="Wedding Gift">
+        <span class="material-symbols-outlined">redeem</span>
+        <span class="nav-label">Gift</span>
+    </a>
+
+</nav>
 
 <section class="section-sound">
     <audio
@@ -37,7 +103,7 @@
 </section>
 
 <!-- HERO / COVER -->
-<section class="hero">
+<section class="hero" id="hero">
 
     <div class="hero-overlay"></div>
 
@@ -72,7 +138,7 @@
 <main id="invitationContent">
 
     <!-- CONTENT PROFILE PRIA DAN WANITA -->
-    <section class="section-content">
+    <section class="section-content section-profile" id="profile">
 
         <!-- HEADER PROFILE -->
         <p class="section-label">
@@ -145,7 +211,7 @@
     </section>
 
     <!-- CONTENT SCHEDULE -->
-    <section class="section-content section-schedule">
+    <section class="section-content section-schedule" id="schedule">
 
         <!-- HEADER SCHEDULE -->
         <p class="section-label">
@@ -218,7 +284,7 @@
     </section>
 
     <!-- MAPS CONTENT -->
-    <section class="section-content">
+    <section class="section-content" id="maps">
 
         <!--HEADER-->
         <p class="section-label">
@@ -371,7 +437,7 @@
     </section>
 
 <!--    Counting Down-->
-    <section class="section-date">
+    <section class="section-date" id="counting">
 
         <h2>Counting Down To Forever</h2>
 
@@ -417,7 +483,7 @@
     </section>
 
 <!--    Live Stream-->
-    <section class="section-stream">
+    <section class="section-stream" id="stream">
 
         <div class="hero-overlay"></div>
 
@@ -454,7 +520,7 @@
     </section>
 
     <!-- LOVE STORY -->
-    <section class="section-content section-love-story">
+    <section class="section-content section-love-story" id="story">
 
         <p class="section-label">
             Our Journey
@@ -620,7 +686,7 @@
     </section>
 
     <!--GALLERY ALBUM-->
-    <section class="section-content section-gallery">
+    <section class="section-content section-gallery" id="gallery">
 
         <p class="section-label">
             Our Memories
@@ -734,7 +800,7 @@
     </section>
 
     <!-- VIDEO DOCUMENTATION -->
-    <section class="section-content section-video">
+    <section class="section-content section-video" id="video">
 
         <p class="section-label">
             Our Moments
@@ -768,7 +834,7 @@
     </section>
 
     <!--WEDDING WISHES-->
-    <section class="section-content wedding-wishes">
+    <section class="section-content wedding-wishes" id="wish">
 
         <p class="section-label">WISHES &amp; PRAYERS</p>
 
@@ -877,7 +943,7 @@
     </section>
 
     <!-- QUOTE / SACRED VERSE -->
-    <section class="section-quote">
+    <section class="section-content section-quote" id="quote">
 
         <div class="quote-decoration">
             <span></span>

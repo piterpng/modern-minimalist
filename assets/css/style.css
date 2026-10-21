@@ -20,6 +20,16 @@ body.invitation-locked {
     overflow: hidden;
 }
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
 /* ========================================
    MUSIC BUTTON
 ======================================== */
@@ -910,7 +920,7 @@ body.invitation-locked {
 
 /*CONTENT QUOTE*/
 .section-quote {
-    min-height: 60vh;
+    /*min-height: 60vh;*/
 
     padding: 100px 30px;
 
@@ -1926,6 +1936,132 @@ img {
     overflow-wrap: anywhere;
 }
 
+/* FLOATING BOTTOM NAVBAR */
+.floating-navbar {
+    position: fixed;
+    z-index: 9999;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4px;
+
+    width: calc(100% - 32px);
+    max-width: 560px;
+    padding: 10px 12px;
+
+    background: rgba(253, 251, 247, 0.96);
+    border: 1px solid #e8e0d5;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(45, 35, 25, 0.12);
+
+    transform: translate(-50%, 30px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* Navbar visible after leaving hero */
+.floating-navbar.is-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* NAV ITEM */
+.nav-item {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    padding: 7px 2px;
+    border-radius: 10px;
+
+    color: #897f73;
+    text-decoration: none;
+
+    transition: color 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav-item .material-symbols-outlined {
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.nav-label {
+    font-family: "Manrope", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* ACTIVE ITEM */
+.nav-item.active {
+    color: #5c4937;
+    background: #ebe3d5;
+}
+
+.nav-item.active .material-symbols-outlined {
+    font-variation-settings: "FILL" 1;
+}
+
+/* HOVER */
+@media (hover: hover) {
+    .nav-item:hover {
+        color: #5c4937;
+        background: #f1ebe2;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .floating-navbar {
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        width: calc(100% - 24px);
+        padding: 8px 5px;
+        gap: 1px;
+        border-radius: 15px;
+    }
+
+    .nav-item {
+        padding: 8px 0;
+        gap: 5px;
+    }
+
+    .nav-item .material-symbols-outlined {
+        font-size: 19px;
+    }
+
+    .nav-label {
+        font-size: 8px;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .floating-navbar,
+    .nav-item {
+        transition: none;
+    }
+}
+
+
 /* ========================================
    TABLET
 ======================================== */
@@ -2207,7 +2343,7 @@ img {
 
     /*CONTENT QUOTE*/
     .section-quote {
-        min-height: 60vh;
+        /*min-height: 60vh;*/
 
         padding: 90px 30px;
     }
@@ -2785,7 +2921,7 @@ img {
 
     /* CONTENT QUOTE */
     .section-quote {
-        min-height: 60vh;
+        /*min-height: 60vh;*/
 
         padding: 80px 20px;
     }
