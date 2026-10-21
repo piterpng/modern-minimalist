@@ -31,16 +31,23 @@ section {
 }
 
 /* ========================================
-   MUSIC BUTTON
+   BUTTON
 ======================================== */
-
-.music-toggle {
+.section-btn {
     position: fixed;
 
-    right: 25px;
+    right: 20px;
     bottom: 25px;
 
     z-index: 9998;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-toggle {
+
 
     width: 45px;
     height: 45px;
@@ -96,6 +103,102 @@ section {
         transform: scale(1);
     }
 
+}
+
+/* Floating navbar di sisi kanan */
+.floating-navbar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    padding: 12px 8px;
+    background: rgba(253, 251, 247, 0.96);
+    border: 1px solid #e8e0d5;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(45, 35, 25, 0.12);
+
+    transform: translate(30px, -50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* Navbar tampil setelah Hero */
+.floating-navbar.is-visible {
+    transform: translate(0, -50%);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Item navigasi */
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    width: 54px;
+    min-height: 48px;
+    padding: 6px 2px;
+
+    color: #897f73;
+    text-decoration: none;
+    border-radius: 10px;
+
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-item .material-symbols-outlined {
+    font-size: 21px;
+    line-height: 1;
+}
+
+.nav-label {
+    font-family: "Manrope", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    color: #5c4937;
+    background: #ebe3d5;
+}
+
+.nav-item.active .material-symbols-outlined {
+    font-variation-settings: "FILL" 1;
+}
+
+
+.navbar-toggle .material-symbols-outlined {
+    font-size: 22px;
+}
+
+/* Saat navbar disembunyikan, tombol tetap terlihat */
+.floating-navbar.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(30px, -50%);
+}
+
+.navbar-toggle.is-collapsed {
+    color: #fdfbf7;
+    background: #c8baa8;
 }
 
 /*STYLE UNTUK HERO/COVER*/
@@ -1936,112 +2039,18 @@ img {
     overflow-wrap: anywhere;
 }
 
-/* FLOATING BOTTOM NAVBAR */
-.floating-navbar {
-    position: fixed;
-    z-index: 9999;
-    bottom: calc(20px + env(safe-area-inset-bottom));
-    left: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 4px;
-
-    width: calc(100% - 32px);
-    max-width: 560px;
-    padding: 10px 12px;
-
-    background: rgba(253, 251, 247, 0.96);
-    border: 1px solid #e8e0d5;
-    border-radius: 18px;
-    box-shadow: 0 8px 30px rgba(45, 35, 25, 0.12);
-
-    transform: translate(-50%, 30px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: opacity 0.3s ease,
-    transform 0.3s ease,
-    visibility 0.3s ease;
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-/* Navbar visible after leaving hero */
-.floating-navbar.is-visible {
-    transform: translate(-50%, 0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-/* NAV ITEM */
-.nav-item {
-    display: flex;
-    flex: 1;
-    min-width: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-
-    padding: 7px 2px;
-    border-radius: 10px;
-
-    color: #897f73;
-    text-decoration: none;
-
-    transition: color 0.2s ease,
-    background 0.2s ease;
-}
-
-.nav-item .material-symbols-outlined {
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1;
-}
-
-.nav-label {
-    font-family: "Manrope", sans-serif;
-    font-size: 9px;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-/* ACTIVE ITEM */
-.nav-item.active {
-    color: #5c4937;
-    background: #ebe3d5;
-}
-
-.nav-item.active .material-symbols-outlined {
-    font-variation-settings: "FILL" 1;
-}
-
-/* HOVER */
-@media (hover: hover) {
-    .nav-item:hover {
-        color: #5c4937;
-        background: #f1ebe2;
-    }
-}
-
-/* MOBILE */
 @media (max-width: 480px) {
     .floating-navbar {
-        bottom: calc(12px + env(safe-area-inset-bottom));
-        width: calc(100% - 24px);
-        padding: 8px 5px;
-        gap: 1px;
+        right: 12px;
+        padding: 9px 5px;
+        gap: 2px;
         border-radius: 15px;
     }
 
     .nav-item {
-        padding: 8px 0;
-        gap: 5px;
+        width: 48px;
+        min-height: 44px;
     }
 
     .nav-item .material-symbols-outlined {
@@ -2053,10 +2062,9 @@ img {
     }
 }
 
-/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
     .floating-navbar,
-    .nav-item {
+    .navbar-toggle {
         transition: none;
     }
 }
@@ -2066,6 +2074,7 @@ img {
    TABLET
 ======================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
+
 
     /*HERO*/
     .hero {
@@ -2107,6 +2116,27 @@ img {
     .open-button {
         width: 190px;
         height: 44px;
+    }
+
+    /*NAVBAR*/
+    .floating-navbar {
+        right: 16px;
+        padding: 10px 6px;
+        gap: 4px;
+        border-radius: 16px;
+    }
+
+    .nav-item {
+        width: 50px;
+        min-height: 46px;
+    }
+
+    .nav-item .material-symbols-outlined {
+        font-size: 20px;
+    }
+
+    .nav-label {
+        font-size: 8.5px;
     }
 
     /*CONTENT PROFILE*/
@@ -2703,6 +2733,27 @@ img {
         height: 44px;
     }
 
+
+    /*NAVBAR*/
+    .floating-navbar {
+        right: 12px;
+        padding: 9px 5px;
+        gap: 3px;
+        border-radius: 15px;
+    }
+
+    .nav-item {
+        width: 48px;
+        min-height: 44px;
+    }
+
+    .nav-item .material-symbols-outlined {
+        font-size: 19px;
+    }
+
+    .nav-label {
+        font-size: 8px;
+    }
 
     /*CONTENT PROFILE */
     .section-profile {
@@ -3354,6 +3405,27 @@ img {
         font-size: 11px;
     }
 
+    /*NAVBAR*/
+    .floating-navbar {
+        right: 10px;
+        padding: 8px 4px;
+        gap: 2px;
+        border-radius: 14px;
+    }
+
+    .nav-item {
+        width: 44px;
+        min-height: 42px;
+        gap: 4px;
+    }
+
+    .nav-item .material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    .nav-label {
+        font-size: 7px;
+    }
 
     /* CONTENT PROFILE */
     .section-profile {

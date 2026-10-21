@@ -688,31 +688,43 @@ fetchWishes();
 
 document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.querySelector("#floatingNavbar");
+    const toggle = document.querySelector("#navbarToggle");
+    const toggleIcon = document.querySelector("#toggleIcon");
     const hero = document.querySelector("#hero");
-    const navItems = document.querySelectorAll(
-        ".floating-navbar .nav-item"
-    );
+    const navItems = document.querySelectorAll(".nav-item");
 
-    if (!navbar || !hero) return;
+    if (!navbar || !toggle || !toggleIcon || !hero) return;
 
-    // Hide navbar while hero is visible
-    const heroObserver = new IntersectionObserver(
-        ([entry]) => {
-            navbar.classList.toggle(
-                "is-visible",
-                !entry.isIntersecting
-            );
-        },
-        {
-            threshold: 0.05
-        }
-    );
+    navbar.classList.add("is-hidden");
+
+    // Sembunyikan atau tampilkan navbar
+    toggle.addEventListener("click", () => {
+        const isCollapsed = navbar.classList.toggle("is-hidden");
+
+        // Warna aktif ketika navbar terbuka
+        toggle.classList.toggle("is-collapsed", !isCollapsed);
+
+        toggle.setAttribute("aria-expanded", String(!isCollapsed));
+        toggle.setAttribute(
+            "aria-label",
+            isCollapsed ? "Tampilkan navigasi" : "Sembunyikan navigasi"
+        );
+    });
+
+
+    // Navbar tidak muncul saat Hero/Cover terlihat
+    const heroObserver = new IntersectionObserver(([entry]) => {
+        const show = !entry.isIntersecting;
+
+        navbar.classList.toggle("is-visible", show);
+        toggle.style.display = show ? "flex" : "none";
+    }, {threshold: 0.05});
 
     heroObserver.observe(hero);
 
-    // Smooth scrolling when a navigation item is clicked
-    navItems.forEach((item) => {
-        item.addEventListener("click", (event) => {
+    // Scroll halus ke section tujuan
+    navItems.forEach(item => {
+        item.addEventListener("click", event => {
             const target = document.querySelector(
                 item.getAttribute("href")
             );
@@ -720,7 +732,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!target) return;
 
             event.preventDefault();
-
             target.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
@@ -728,39 +739,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Mark the current section as active
+    // Tandai menu berdasarkan section aktif
     const sections = [...navItems]
-        .map((item) => document.querySelector(item.getAttribute("href")))
+        .map(item => document.querySelector(item.getAttribute("href")))
         .filter(Boolean);
 
-    const sectionObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
+    const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
 
-                navItems.forEach((item) => {
-                    const isActive =
-                        item.getAttribute("href") ===
-                        `#${entry.target.id}`;
+            navItems.forEach(item => {
+                const active =
+                    item.getAttribute("href") === `#${entry.target.id}`;
 
-                    item.classList.toggle("active", isActive);
+                item.classList.toggle("active", active);
 
-                    if (isActive) {
-                        item.setAttribute("aria-current", "location");
-                    } else {
-                        item.removeAttribute("aria-current");
-                    }
-                });
+                if (active) {
+                    item.setAttribute("aria-current", "location");
+                } else {
+                    item.removeAttribute("aria-current");
+                }
             });
-        },
-        {
-            rootMargin: "-30% 0px -55% 0px",
-            threshold: 0
-        }
-    );
-
-    sections.forEach((section) => {
-        sectionObserver.observe(section);
+        });
+    }, {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: 0
     });
-});
 
+    sections.forEach(section => sectionObserver.observe(section));
+});
