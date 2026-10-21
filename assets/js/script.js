@@ -768,3 +768,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach(section => sectionObserver.observe(section));
 });
+
+// COPY BANK NUMBER
+const copyNumberBtn = document.querySelector("#copyNumberBtn");
+const accountNumber = document.querySelector("#accountNumber");
+const copyFeedback = document.querySelector("#copyFeedback");
+
+copyNumberBtn.addEventListener("click", async () => {
+    // Hilangkan tanda hubung saat menyalin
+    const number = accountNumber.textContent.trim().replace(/-/g, "");
+
+    try {
+        await navigator.clipboard.writeText(number);
+
+        copyFeedback.textContent = "Account number copied!";
+        copyNumberBtn.querySelector(".copy-btn-text").textContent = "Copied!";
+
+        setTimeout(() => {
+            copyFeedback.textContent = "";
+            copyNumberBtn.querySelector(".copy-btn-text").textContent =
+                "Copy Number";
+        }, 2000);
+    } catch (error) {
+        copyFeedback.textContent =
+            "Unable to copy. Please copy the number manually.";
+
+        console.error("Failed to copy account number:", error);
+    }
+});
