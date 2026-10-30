@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Modern Minimalist
+    </title>
+    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    </link>
+</head>
+<body class="invitation-locked">
+
+<!-- FLOATING BOTTOM NAVBAR -->
+<nav aria-label="Wedding navigation" class="floating-navbar" id="floatingNavbar">
+
+    <a aria-label="Couple" class="nav-item" href="#profile">
+        <span class="material-symbols-outlined">favorite</span>
+        <span class="nav-label">Couple</span>
+    </a>
+
+    <a aria-label="Schedule" class="nav-item" href="#schedule">
+        <span class="material-symbols-outlined">calendar_month</span>
+        <span class="nav-label">Event</span>
+    </a>
+
+    <a aria-label="Maps" class="nav-item" href="#maps">
+        <span class="material-symbols-outlined">location_on</span>
+        <span class="nav-label">Location</span>
+    </a>
+
+    <a aria-label="Counting" class="nav-item" href="#counting">
+        <span class="material-symbols-outlined">timer</span>
+        <span class="nav-label">Counting</span>
+    </a>
+
+    <a aria-label="Streaming" class="nav-item" href="#stream">
+        <span class="material-symbols-outlined">live_tv</span>
+        <span class="nav-label">Stream</span>
+    </a>
+
+    <a aria-label="Love Story" class="nav-item" href="#story">
+        <span class="material-symbols-outlined">auto_stories</span>
+        <span class="nav-label">Story</span>
+    </a>
+
+    <a aria-label="Gallery" class="nav-item" href="#gallery">
+        <span class="material-symbols-outlined">photo_library</span>
+        <span class="nav-label">Gallery</span>
+    </a>
+
+    <a aria-label="Wedding Wishes" class="nav-item" href="#wish">
+        <span class="material-symbols-outlined">mail</span>
+        <span class="nav-label">Wishes</span>
+    </a>
+
+    <a aria-label="Wedding Gift" class="nav-item" href="#gift">
+        <span class="material-symbols-outlined">redeem</span>
+        <span class="nav-label">Gift</span>
+    </a>
+
+</nav>
+
+<section class="section-btn">
+
+    <button
+            aria-expanded="true"
+            aria-label="Sembunyikan navigasi"
+            class="btn-toggle navbar-toggle"
+            id="navbarToggle"
+            type="button">
+        <span class="material-symbols-outlined" id="toggleIcon">menu</span>
+    </button>
+
+    <audio id="weddingMusic" loop="" preload="auto">
+        <source data-config-src="music.source" src="./assets/audio/wedding-backsound.mp3" type="audio/mpeg"/>
+    </audio>
+
+    <button
+            aria-label="Play music"
+            class="btn-toggle music-toggle"
+            id="musicToggle" type="button">
+        <i class="fa-solid fa-volume-high"></i>
+    </button>
+
+</section>
+<!-- HERO / COVER -->
+<section class="hero" id="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="subtitle" data-config="hero.subtitle">THE WEDDING INVITATION OF</p>
+
+        <h1 class="couple-name" data-config="hero.coupleName">
+            Jessica<span>&amp;</span>Michael
+        </h1>
+
+        <p class="date" data-config="hero.date">
+            MONDAY, DECEMBER 14 ,2026
+        </p>
+
+        <p class="description" data-config="hero.description">
+            We joyfully invite you to join us in celebrating our love, commitment, and the beginning of our forever
+            journey together.
+        </p>
+
+        <button class="open-button" id="openInvitation">
+            <span data-config="hero.openButton">OPEN INVITATION</span>
+            <i class="fa-regular fa-envelope-open"></i>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- CONTENT SETELAH COVER -->
+<main id="invitationContent">
+
+    <!-- CONTENT PROFILE PRIA DAN WANITA -->
+    <section class="section-content section-profile" id="profile">
+
+        <!-- HEADER PROFILE -->
+        <p class="section-label" data-config="profile.subtitle">
+            THE HAPPY COUPLE
+        </p>
+
+        <h2 class="section-header" data-config="profile.title">
+            Meet the Bride &amp; Groom
+        </h2>
+
+        <p class="section-description" data-config="profile.description">
+            Every love story is beautiful, but ours is our absolute favorite. Here is a little glimpse into who we are.
+        </p>
+
+        <!-- GROUP PROFILE -->
+        <div class="couple-profile">
+
+            <!-- CARD WANITA -->
+            <div class="couple">
+
+                <div class="couple-photo">
+                    <img alt="Nama Wanita" data-config-src="profile.bride.photo" src="assets/images/women.png"/>
+                </div>
+
+                <div class="couple-info">
+
+                    <h3 data-config="profile.bride.fullName">
+                        Jessica Flick
+                    </h3>
+
+                    <span data-config="profile.bride.parents">Putri dari Bapak Hansi Flick &amp; Ibu Marry Jane</span>
+
+                    <p data-config="profile.bride.description">
+                        Seorang pribadi yang sederhana dan penuh kasih, yang selalu menemukan kebahagiaan dalam hal-hal
+                        kecil.
+                    </p>
+
+                    <div class="couple-social">
+
+                        <a aria-label="Facebook" data-config-href="profile.bride.socialMedia.facebook" href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a aria-label="Instagram" data-config-href="profile.bride.socialMedia.instagram" href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD PRIA -->
+            <div class="couple">
+
+                <div class="couple-photo">
+                    <img alt="Nama Pria" data-config-src="profile.groom.photo" src="assets/images/man.png"/>
+                </div>
+
+                <div class="couple-info">
+
+                    <h3 data-config="profile.groom.fullName">
+                        Michael Doe
+                    </h3>
+
+                    <span data-config="profile.groom.parents">Putra dari Bapak John Doe &amp; Ibu Jane Doe</span>
+
+                    <p data-config="profile.groom.description">
+                        Pribadi yang hangat dan penuh perhatian, yang percaya bahwa perjalanan terbaik adalah yang
+                        dijalani bersama.
+                    </p>
+
+                </div>
+
+                <div class="couple-social">
+
+                    <a aria-label="Facebook" data-config-href="profile.groom.socialMedia.facebook" href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a aria-label="Instagram" data-config-href="profile.groom.socialMedia.instagram" href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTENT SCHEDULE -->
+    <section class="section-content section-schedule" id="schedule">
+
+        <!-- HEADER SCHEDULE -->
+        <p class="section-label" data-config="schedule.subtitle">
+            Wedding Schedule
+        </p>
+
+        <h2 class="section-header" data-config="schedule.title">
+            The Day's Itinerary
+        </h2>
+
+        <p class="section-description" data-config="schedule.description">
+            Please join us on time to ensure you don't miss a single moment of our celebrations.
+        </p>
+
+        <!-- GROUP CARD SCHEDULE -->
+        <div class="schedule-group">
+
+            <!-- CARD SCHEDULE 1 -->
+            <div class="schedule-card">
+                <div class="schedule-header">
+                    <div class="schedule-title">
+                        <p data-config="schedule.events.0.category">
+                            THE CEREMONY
+                        </p>
+                        <h3 data-config="schedule.events.0.title">
+                            Holy Matrimony
+                        </h3>
+                    </div>
+                    <a class="schedule-calendar" data-config-href="schedule.events.0.calendarUrl"
+                       href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Holy%20Matrimony%20Jessica%20And%20Michael&amp;dates=20261214T100000/20261214T113000&amp;details=Wedding%20Ceremony&amp;location=The%20Glass%20Cathedral%2C%20Hillside%20Reserve"
+                       target="_blank">
+                        <i class="fa-regular fa-calendar-plus"></i>
+                    </a>
+                </div>
+                <hr/>
+
+                <span data-config="schedule.events.0.date">Monday, Dec 14, 2026</span>
+
+                <span>
+                 <span data-config="schedule.events.0.startTime"></span> - <span
+                        data-config="schedule.events.0.endTime"></span></span>
+
+                <p data-config="schedule.events.0.location">
+                    The Glass Cathedral, Hillside Reserve
+                </p>
+
+            </div>
+
+            <!-- CARD SCHEDULE 2 -->
+            <div class="schedule-card">
+                <div class="schedule-header">
+                    <div class="schedule-title">
+                        <p data-config="schedule.events.1.category">
+                            THE CELEBRATION
+                        </p>
+                        <h3 data-config="schedule.events.1.title">
+                            Grand Reception
+                        </h3>
+                    </div>
+                    <a class="schedule-calendar" data-config-href="schedule.events.1.calendarUrl"
+                       href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Grand%20Reception%20Jessica%20And%20Michael&amp;dates=20261214T120000/20261214T160000&amp;details=Wedding%20Reception&amp;location=The%20Glass%20Cathedral%2C%20Hillside%20Reserve"
+                       target="_blank">
+                        <i class="fa-regular fa-calendar-plus">
+                        </i>
+                    </a>
+                </div>
+                <hr/>
+                <span data-config="schedule.events.1.date">Monday, Dec 14, 2026</span>
+
+                <span>
+                 <span data-config="schedule.events.1.startTime"></span> -
+                 <span data-config="schedule.events.1.endTime"></span>
+                </span>
+
+                <p data-config="schedule.events.1.location">
+                    The Grand Ballroom, Hillside Reserve
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPS CONTENT -->
+    <section class="section-content" id="maps">
+
+        <!--HEADER-->
+        <p class="section-label" data-config="maps.subtitle">
+            Location &amp; Directions
+        </p>
+
+        <h2 class="section-header" data-config="maps.title">
+            The Venue Location
+        </h2>
+
+        <p class="section-description" data-config="maps.description">
+            Here are the details to help you find your way to our celebration.
+        </p>
+
+        <!--MAPS SLIDE-->
+        <div class="maps-slider">
+            <div class="maps-track">
+
+                <!-- SLIDE 1 -->
+                <div class="map-slide">
+                    <div class="map-container">
+                        <iframe allowfullscreen="" data-config-src="maps.locations.0.mapEmbedUrl" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.098961936418!2d114.58924607497197!3d-3.3257219966490696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de423ff8750a5a1%3A0xa5eb53c97d21416f!2sUD%20REZ%20WAN%20JAYA!5e0!3m2!1sid!2sid!4v1788542858786!5m2!1sid!2sid">
+                        </iframe>
+                    </div>
+                    <div class="map-info">
+                        <p class="map-label" data-config="maps.locations.0.category">
+                            THE CEREMONY
+                        </p>
+                        <h3 data-config="maps.locations.0.title">
+                            The Glass Cathedral
+                        </h3>
+                        <p class="map-address" data-config="maps.locations.0.address">
+                            The Glass Cathedral, Hillside Reserve
+                        </p>
+                        <div class="map-actions">
+
+                            <a class="map-button" data-config-href="maps.locations.0.googleMapsUrl"
+                               href="https://maps.app.goo.gl/jS6m5HnXCdhwxRG98" target="_blank">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Google Maps</span>
+                            </a>
+
+                            <a class="map-button" data-config-href="maps.locations.0.calendarUrl"
+                               href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Holy%20Matrimony%20Jessica%20And%20Michael&amp;dates=20261214T100000/20261214T113000&amp;details=Wedding%20Ceremony&amp;location=The%20Glass%20Cathedral%2C%20Hillside%20Reserve"
+                               target="_blank">
+                                <i class="fa-regular fa-calendar-plus"></i>
+                                <span>Add To Calendar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="map-slide">
+                    <div class="map-container">
+                        <iframe allowfullscreen="" data-config-src="maps.locations.1.mapEmbedUrl" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.098961936418!2d114.58924607497197!3d-3.3257219966490696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de423ff8750a5a1%3A0xa5eb53c97d21416f!2sUD%20REZ%20WAN%20JAYA!5e0!3m2!1sid!2sid!4v1788542858786!5m2!1sid!2sid">
+                        </iframe>
+                    </div>
+                    <div class="map-info">
+                        <p class="map-label" data-config="maps.locations.1.category">
+                            THE CELEBRATION
+                        </p>
+                        <h3 data-config="maps.locations.1.title">
+                            The Grand Ballroom
+                        </h3>
+                        <p class="map-address" data-config="maps.locations.1.address">
+                            The Grand Ballroom, Hillside Reserve
+                        </p>
+                        <div class="map-actions">
+                            <a class="map-button" data-config-href="maps.locations.1.googleMapsUrl"
+                               href="https://maps.app.goo.gl/jS6m5HnXCdhwxRG98" target="_blank">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Google Maps</span>
+                            </a>
+                            <a class="map-button" data-config-href="maps.locations.1.calendarUrl"
+                               href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Grand%20Reception%20Jessica%20And%20Michael&amp;dates=20261214T120000/20261214T160000&amp;details=Wedding%20Reception&amp;location=The%20Glass%20Cathedral%2C%20Hillside%20Reserve"
+                               target="_blank">
+                                <i class="fa-regular fa-calendar-plus">
+                                </i>
+                                <span>Add To Calendar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SLIDER NAVIGATION -->
+        <div class="maps-navigation">
+            <button aria-label="Previous location" class="maps-arrow maps-prev">
+                &larr;
+            </button>
+
+            <div class="maps-dots">
+                <button class="map-dot active" data-slide="0">
+                </button>
+                <button class="map-dot" data-slide="1">
+                </button>
+            </div>
+
+            <button aria-label="Next location" class="maps-arrow maps-next">
+                &rarr;
+            </button>
+        </div>
+    </section>
+
+    <!--    Counting Down-->
+    <section class="section-date" id="counting">
+        <h2 data-config="countdown.title">
+            Counting Down To Forever
+        </h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">124</span>
+                <span class="countdown-label">Days</span>
+            </div>
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">14</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">42</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">42</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+
+        <p class="date-message" data-config="countdown.message">
+            We can't wait to celebrate this special day with you.
+        </p>
+
+        <a class="calendar-button" data-config-href="countdown.calendarUrl"
+           href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Holy%20Matrimony&amp;dates=20261214T100000/20261214T113000&amp;details=Wedding%20Ceremony&amp;location=The%20Glass%20Cathedral%2C%20Hillside%20Reserve"
+           target="_blank">
+            <i class="fa-regular fa-calendar"></i>
+            <span>Add To Calendar</span>
+        </a>
+
+    </section>
+
+    <!--    Live Stream-->
+    <section class="section-stream" id="stream">
+
+        <div class="hero-overlay"></div>
+
+        <div class="stream-content">
+
+            <p class="section-label stream-subtitle" data-config="livestream.subtitle">
+                VIRTUAL CELEBRATION
+            </p>
+
+            <h1 class="section-header stream-header" data-config="livestream.title">
+                Watch Live Streaming
+            </h1>
+
+            <p class="section-description stream-description" data-config="livestream.description">
+                For our beloved friends and family who cannot make it in person, we invite you to join our ceremony
+                virtually via high-definition broadcast.
+            </p>
+
+            <p class="stream-date">
+                Broadcasting starts <span data-config="livestream.date"></span>
+                <br/>
+                at <span data-config="livestream.time"></span>
+            </p>
+
+            <a class="stream-button" data-config-href="livestream.url"
+               href="https://www.youtube.com/live/3o7abhf9EAE?si=YhrTZQZhzlxn91sy" rel="noopener noreferrer"
+               target="_blank">
+                <i class="fa-solid fa-play"></i>
+                <span>WATCH LIVE STREAM</span>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- LOVE STORY -->
+    <section class="section-content section-love-story" id="story">
+
+        <p class="section-label" data-config="loveStory.subtitle">
+            Our Journey
+        </p>
+
+        <h2 class="section-header" data-config="loveStory.title">
+            Our Love Story
+        </h2>
+
+        <p class="section-description" data-config="loveStory.description">
+            Every love story is beautiful, but ours is our favorite. Here are a few moments that brought us closer
+            together.
+        </p>
+
+        <div class="love-timeline-wrapper">
+
+            <div class="love-timeline">
+
+                <div class="love-story-item">
+                    <div class="love-story-point">
+                        <span></span>
+                    </div>
+                    <div class="love-story-year" data-config="loveStory.items.0.year">2019</div>
+                    <div class="love-story-content">
+                        <div class="love-story-photo">
+                            <img alt="" data-config-src="loveStory.items.0.image" src="assets/images/firstdate.jpeg"/>
+                        </div>
+                        <span class="love-story-label" data-config="loveStory.items.0.label">THE BEGINNING</span>
+                        <h3 data-config="loveStory.items.0.title">
+                            Where It All Began
+                        </h3>
+                        <p data-config="loveStory.items.0.description">
+                            It all started with a simple hello, not knowing that this little moment would become the
+                            beginning of our journey.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="love-story-item">
+                    <div class="love-story-point">
+                        <span></span>
+                    </div>
+                    <div class="love-story-year" data-config="loveStory.items.1.year">
+                        2020
+                    </div>
+                    <div class="love-story-content">
+                        <div class="love-story-photo">
+                            <img alt="" data-config-src="loveStory.items.1.image" src="assets/images/relationship.jpg"/>
+                        </div>
+                        <span class="love-story-label" data-config="loveStory.items.1.label">GROWING TOGETHER</span>
+                        <h3 data-config="loveStory.items.1.title">
+                            Moments We Shared
+                        </h3>
+                        <p data-config="loveStory.items.1.description">
+                            Through countless conversations, little adventures, and unforgettable moments, we discovered
+                            how special it was to have each other.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="love-story-item">
+                    <div class="love-story-point">
+                        <span></span>
+                    </div>
+                    <div class="love-story-year" data-config="loveStory.items.2.year">
+                        2024
+                    </div>
+                    <div class="love-story-content">
+                        <div class="love-story-photo">
+                            <img alt="" data-config-src="loveStory.items.2.image" src="assets/images/propose.jpeg"/>
+                        </div>
+                        <span class="love-story-label" data-config="loveStory.items.2.label">A NEW CHAPTER</span>
+                        <h3 data-config="loveStory.items.2.title">
+                            Forever Starts Here
+                        </h3>
+                        <p data-config="loveStory.items.2.description">
+                            With love in our hearts and dreams for the future, we decided to take the next step
+                            together.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="love-story-item">
+                    <div class="love-story-point">
+                        <span></span>
+                    </div>
+                    <div class="love-story-year" data-config="loveStory.items.3.year">
+                        2026
+                    </div>
+                    <div class="love-story-content">
+                        <div class="love-story-photo">
+                            <img alt="" data-config-src="loveStory.items.3.image" src="assets/images/wedding.jpg"/>
+                        </div>
+                        <span class="love-story-label"
+                              data-config="loveStory.items.3.label">THE BEGINNING OF FOREVER</span>
+                        <h3 data-config="loveStory.items.3.title">
+                            Our Wedding Day
+                        </h3>
+                        <p data-config="loveStory.items.3.description">
+                            Surrounded by the people we love, we begin the most beautiful chapter of our story together.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="love-timeline-dots">
+            <button class="love-dot-slide active" data-slide="0"></button>
+            <button class="love-dot-slide" data-slide="1"></button>
+            <button class="love-dot-slide" data-slide="2"></button>
+            <button class="love-dot-slide" data-slide="3"></button>
+        </div>
+
+    </section>
+
+    <!--GALLERY ALBUM-->
+    <section class="section-content section-gallery" id="gallery">
+
+        <p class="section-label" data-config="gallery.subtitle">
+            Our Memories
+        </p>
+
+        <h2 class="section-header" data-config="gallery.title">
+            Captured Moments
+        </h2>
+
+        <p class="section-description" data-config="gallery.description">
+            A collection of moments, memories, and little pieces of our journey together.
+        </p>
+
+        <div class="gallery-wrapper">
+            <div class="gallery-track">
+
+                <div class="gallery-item">
+                    <img alt="Our memories" data-config-alt="gallery.images.0.alt"
+                         data-config-src="gallery.images.0.src" src="assets/images/gallery/gallery1.jpg"/>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="Our memories" data-config-alt="gallery.images.1.alt"
+                         data-config-src="gallery.images.1.src" src="assets/images/gallery/gallery2.jpeg"/>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="Our memories" data-config-alt="gallery.images.2.alt"
+                         data-config-src="gallery.images.2.src" src="assets/images/gallery/gallery3.jpg"/>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="Our memories" data-config-alt="gallery.images.3.alt"
+                         data-config-src="gallery.images.3.src" src="assets/images/gallery/gallery4.jpg"/>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="Our memories" data-config-alt="gallery.images.4.alt"
+                         data-config-src="gallery.images.4.src" src="assets/images/gallery/gallery5.jpg"/>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="Our memories" data-config-alt="gallery.images.5.alt"
+                         data-config-src="gallery.images.5.src" src="assets/images/gallery/gallery6.jpg"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gallery-navigation">
+
+            <button aria-label="Previous gallery" class="gallery-arrow gallery-prev">
+                &larr;
+            </button>
+
+            <div class="gallery-dots">
+                <span class="gallery-dot active"></span>
+                <span class="gallery-dot"></span>
+                <span class="gallery-dot"></span>
+                <span class="gallery-dot"></span>
+                <span class="gallery-dot"></span>
+                <span class="gallery-dot"></span>
+            </div>
+
+            <button aria-label="Next gallery" class="gallery-arrow gallery-next">
+                &rarr;
+            </button>
+
+        </div>
+
+        <div class="gallery-lightbox" id="galleryLightbox">
+            <button aria-label="Close" class="lightbox-close" id="lightboxClose">
+                &times;
+            </button>
+            <button aria-label="Previous" class="lightbox-arrow lightbox-prev" id="lightboxPrev">
+                ❮
+            </button>
+            <div class="lightbox-content">
+                <img alt="Wedding gallery" id="lightboxImage" src=""/>
+            </div>
+            <button aria-label="Next" class="lightbox-arrow lightbox-next" id="lightboxNext">
+                ❯
+            </button>
+        </div>
+
+    </section>
+
+    <!-- VIDEO DOCUMENTATION -->
+    <section class="section-content section-video" id="video">
+
+        <p class="section-label" data-config="video.subtitle">
+            Our Moments
+        </p>
+
+        <h2 class="section-header" data-config="video.title">
+            A Glimpse Of Our Journey
+        </h2>
+
+        <p class="section-description" data-config="video.description">
+            A collection of moments, memories, and stories that we would love to share with you.
+        </p>
+
+        <div class="video-wrapper">
+            <div class="video-container">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen="" data-config-src="video.youtubeEmbedUrl" frameborder="0"
+                        src="https://www.youtube.com/embed/CGoxTMkNbmQ?si=ltR3l0m-X3Ogx-fs"
+                        title="Wedding Documentation">
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+    <!--WEDDING WISHES-->
+    <section class="section-content wedding-wishes" id="wish">
+
+        <p class="section-label" data-config="wishes.subtitle">
+            WISHES &amp; PRAYERS
+        </p>
+
+        <h2 class="section-header" data-config="wishes.title">
+            Your Wishes For Us
+        </h2>
+
+        <p class="section-description" data-config="wishes.description">
+            Your presence in our lives means so much to us. Leave us your heartfelt wishes and prayers as we begin this
+            beautiful journey together.
+        </p>
+
+        <div class="wishes-container">
+            <!-- Wishes Form -->
+            <form class="wishes-form">
+                <h3 data-config="wishes.form.title">
+                    Send Wishes
+                </h3>
+                <div class="form-group">
+                    <label for="name">
+                        Your Name
+                    </label>
+                    <input data-config-placeholder="wishes.form.namePlaceholder" id="name" name="name"
+                           placeholder="Enter your name" required="" type="text"/>
+                </div>
+                <fieldset class="form-group attendance-group">
+
+                    <legend>
+                        Attendance Confirmation
+                    </legend>
+
+                    <label class="radio-option" for="attend">
+                        <input id="attend" name="attendance" required="" type="radio" value="Will Attend"/>
+                        <span>Will Attend</span>
+                    </label>
+
+                    <label class="radio-option" for="absent">
+                        <input id="absent" name="attendance" type="radio" value="Unable to Attend"/>
+                        <span>Unable to Attend</span>
+                    </label>
+
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="wishes">
+                        Warm Wishes
+                    </label>
+                    <textarea data-config-placeholder="wishes.form.messagePlaceholder" id="wishes" name="wishes"
+                              placeholder="Write your congratulations and blessings..." required="" rows="5"></textarea>
+                </div>
+
+                <button class="wishes-submit" data-config="wishes.form.submitText" type="submit">
+                    SEND WISHES
+                </button>
+
+            </form>
+
+            <!-- Recent Wishes -->
+            <div class="recent-wishes">
+                <h3 class="recent-wishes-title">
+                    Recent Wishes
+                    <span data-config="wishes.recentTitle">(3)</span>
+                </h3>
+
+                <div class="wishes-list">
+                    <!-- Wishes Card -->
+                    <article class="wishes-card">
+
+                        <div class="wishes-card-header">
+                            <h4 class="wishes-author">
+                                Emily Johnson
+                            </h4>
+                            <span class="attendance-status">Will Attend</span>
+                        </div>
+
+                        <p class="wishes-message">
+                            Congratulations, Jessica &amp; Michael!
+                            We are absolutely thrilled to celebrate this
+                            magical day with you. Wishing you a lifetime
+                            of joy and laughter!
+                        </p>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--WEDDING GIFT-->
+    <section class="section-content" id="gift">
+
+        <p class="section-label" data-config="gift.subtitle">
+            Digital Envelope
+        </p>
+
+        <h2 class="section-header" data-config="gift.title">
+            Registry &amp; Wedding Gift
+        </h2>
+
+        <p class="section-description" data-config="gift.description">
+            Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, a
+            digital contribution would be warmly appreciated.
+        </p>
+
+        <div class="gift-container">
+            <!-- BANK DETAIL -->
+            <div class="gift-detail">
+                <div class="gift-card">
+
+                    <h3 class="gift-card-title" data-config="gift.bank.title">
+                        Direct Bank Transfer
+                    </h3>
+
+                    <div class="gift-info">
+                        <div class="gift-field">
+                            <span class="gift-label">Bank Name</span>
+                            <p class="gift-value" data-config="gift.bank.bankName">
+                                Bank Central Asia
+                            </p>
+                        </div>
+
+                        <div class="gift-field">
+                            <span class="gift-label">Account Holder</span>
+                            <p class="gift-value" data-config="gift.bank.accountHolder">
+                                Jessica Miller &amp; Michael Vance
+                            </p>
+                        </div>
+
+                        <div class="gift-field">
+                            <span class="gift-label">Account Number</span>
+                            <div class="account-number-wrapper">
+                                <p class="gift-value account-number" data-config="gift.bank.accountNumber"
+                                   id="accountNumber">
+                                    740-9843-12-00
+                                </p>
+                                <button aria-label="Copy account number" class="copy-number-btn" id="copyNumberBtn"
+                                        type="button">
+                                    <!--                                    <span class="material-symbols-outlined">-->
+                                    <!--                                        content_copy-->
+                                    <!--                                    </span>-->
+                                    <span class="copy-btn-text">Copy Number</span>
+                                </button>
+                            </div>
+                            <span aria-live="polite" class="copy-feedback" id="copyFeedback" role="status"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- GIFT ADDRESS -->
+            <div class="gift-detail">
+                <div class="gift-card">
+                    <h3 class="gift-card-title" data-config="gift.delivery.title">
+                        Wedding Gift Delivery
+                    </h3>
+
+                    <div class="gift-info">
+                        <div class="gift-field">
+                            <span class="gift-label">Recipient</span>
+                            <p class="gift-value" data-config="gift.delivery.recipient">
+                                Jessica Miller &amp; Michael Vance
+                            </p>
+                        </div>
+                        <div class="gift-field">
+                            <span class="gift-label">Delivery Address</span>
+                            <p class="gift-value" data-config="gift.delivery.address" id="giftAddress">
+                                Jl. Contoh Alamat No. 123,
+                                Batam, Kepulauan Riau, Indonesia
+                            </p>
+                        </div>
+                        <div class="gift-field">
+                            <span class="gift-label">Delivery Note</span>
+                            <p class="gift-value" data-config="gift.delivery.note">
+                                Please include our names on the package.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE / SACRED VERSE -->
+    <section class="section-content section-quote" id="quote">
+        <div class="quote-decoration"><span>
+     </span>
+            <i class="fa-solid fa-feather-pointed">
+            </i>
+            <span>
+     </span>
+        </div>
+        <p class="quote-label" data-config="quote.label">
+            OUR PRAYER
+        </p>
+        <blockquote class="quote-text" data-config="quote.text">
+            &ldquo;May God make our marriage a reality, be with us every step of the way, and fill our home with love,
+            joy, and peace.&rdquo;
+        </blockquote>
+        <p class="quote-source" data-config="quote.source">
+            Blessings &amp; Prayers
+        </p>
+    </section>
+
+</main>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/js/config.js"></script>
+</body>
+</html>
