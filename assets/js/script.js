@@ -1,3 +1,4 @@
+//Music
 const weddingMusic =
     document.querySelector("#weddingMusic");
 
@@ -148,7 +149,10 @@ dots.forEach((dot, index) => {
 });
 
 //counting down
-const weddingDate = new Date("2026-12-14T10:00:00+07:00").getTime();
+// const weddingDate = new Date("2026-12-14T10:00:00+07:00").getTime();
+const weddingDate = new Date(
+    window.WEDDING_CONFIG.countdown.targetDate
+).getTime();
 
 const countdown = setInterval(() => {
 
@@ -500,10 +504,7 @@ galleryLightbox.addEventListener(
 );
 
 
-/* ========================================
-   KEYBOARD
-======================================== */
-
+//KEYBOARD
 document.addEventListener(
     "keydown",
     (event) => {
@@ -543,7 +544,8 @@ document.addEventListener(
 // FORM WISHES
 // Google Apps Script Web App URL
 // const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZRI2b5XbR-q97_v5bcIox9WaNzuSI6xtQNbx1iure_t07Z3LwGroPiPvsD5297a-e/exec";
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTklxXZlGkiLiSKuNUyh_l2KSTi4biKvN-LxOMgU7X2J7xPUUbC0RV_3vSYYBy7MPwMQ/exec";
+// const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTklxXZlGkiLiSKuNUyh_l2KSTi4biKvN-LxOMgU7X2J7xPUUbC0RV_3vSYYBy7MPwMQ/exec";
+const SCRIPT_URL = window.WEDDING_CONFIG.wishes.form.SCRIPT_URL;
 
 // Ambil elemen HTML
 const form = document.querySelector(".wishes-form");
@@ -685,7 +687,7 @@ form.addEventListener("submit", async event => {
 // Muat ucapan saat halaman dibuka
 fetchWishes();
 
-
+//Navbar
 document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.querySelector("#floatingNavbar");
     const toggle = document.querySelector("#navbarToggle");

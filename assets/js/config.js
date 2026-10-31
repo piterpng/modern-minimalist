@@ -107,7 +107,7 @@ const WEDDING_CONFIG = {
     countdown: {
         title: "Counting Down To Forever",
         message: "We can't wait to celebrate this special day with you.",
-        targetDate: "2026-12-16T09:00:00+07:00",
+        targetDate: "2026-12-14T10:00:00+07:00",
         calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Holy%20Matrimony&amp;dates=20261214T100000/20261214T113000&amp;details=Wedding%20Ceremony&amp;location=The%20Glass%20Cathedral%2C%20Hillside%20Reserve"
     },
 
@@ -222,6 +222,7 @@ const WEDDING_CONFIG = {
             namePlaceholder: "Enter your name",
             messagePlaceholder: "Write your wishes here...",
             submitText: "SEND WISHES",
+            SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyTklxXZlGkiLiSKuNUyh_l2KSTi4biKvN-LxOMgU7X2J7xPUUbC0RV_3vSYYBy7MPwMQ/exec",
 
             attendanceOptions: [
                 {
