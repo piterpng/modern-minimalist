@@ -1,4 +1,9 @@
 // ========================================
+//⛔ TIDAK Boleh Diubah (Kecuali Paham Pemrograman)
+// File ini mengatur mekanisme interaktif halaman. Jangan diubah kecuali ingin menambah fungsionalitas baru
+// ========================================
+
+// ========================================
 // MUSIC
 // ========================================
 const weddingMusic =

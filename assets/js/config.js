@@ -1,4 +1,6 @@
 // UBAH SEMUA DATA UNDANGAN LEWAT SINI
+// JANGAN MERUBAH NAMA VARIABLE(subtitle:)
+// YANG BOLEH DIUBAH HANYA VALUE("THE WEDDING INVITATION OF")
 const WEDDING_CONFIG = {
     // ========================================
     // HERO / COVER
@@ -286,6 +288,9 @@ const WEDDING_CONFIG = {
 // Make configuration accessible globally
 window.WEDDING_CONFIG = WEDDING_CONFIG;
 
+// ======================================
+// File ini mengatur mekanisme data halaman. Jangan diubah kecuali ingin menambah fungsionalitas baru
+// ======================================
 function getConfigValue(path) {
     return path.split(".").reduce(
         (value, key) => value?.[key],
