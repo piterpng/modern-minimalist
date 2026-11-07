@@ -11,9 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     </link>
 </head>
+
+<!-- PENTING:
+     - Pertahankan class dan id agar navigasi serta CSS/JavaScript
+       yang sudah ada tetap berfungsi.
+     - Untuk mengubah data undangan, silakan buka file config.js.
+ -->
 <body class="invitation-locked">
 
 <!-- FLOATING BOTTOM NAVBAR -->
+<!-- AREA AMAN DIMODIFIKASI:
+     Ubah href untuk mengatur tujuan navigasi,
+     aria-label untuk aksesibilitas, ikon, dan nav-label
+     untuk menyesuaikan tampilan menu.
+-->
 <nav aria-label="Wedding navigation" class="floating-navbar" id="floatingNavbar">
 
     <a aria-label="Couple" class="nav-item" href="#profile">
@@ -62,9 +73,12 @@
     </a>
 
 </nav>
+<!-- Akhir Navbar -->
 
+<!-- Button -->
 <section class="section-btn">
 
+    <!-- BUTTON NAVIGASI -->
     <button
             aria-expanded="true"
             aria-label="Sembunyikan navigasi"
@@ -74,6 +88,7 @@
         <span class="material-symbols-outlined" id="toggleIcon">menu</span>
     </button>
 
+    <!-- BUTTON MUSIC -->
     <audio id="weddingMusic" loop="" preload="auto">
         <source data-config-src="music.source" src="./assets/audio/wedding-backsound.mp3" type="audio/mpeg"/>
     </audio>
@@ -86,6 +101,7 @@
     </button>
 
 </section>
+
 <!-- HERO / COVER -->
 <section class="hero" id="hero">
 

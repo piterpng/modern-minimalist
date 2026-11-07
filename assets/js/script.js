@@ -1,4 +1,6 @@
-//Music
+// ========================================
+// MUSIC
+// ========================================
 const weddingMusic =
     document.querySelector("#weddingMusic");
 
@@ -77,7 +79,13 @@ musicToggle.addEventListener(
 
     }
 );
+// ========================================
+// END MUSIC
+// ========================================
 
+// ========================================
+// OPEN INVITATION
+// ========================================
 const openInvitation = document.getElementById("openInvitation");
 const invitationContent = document.getElementById("invitationContent");
 
@@ -102,7 +110,17 @@ openInvitation.addEventListener("click", () => {
     playMusic();
 
 });
+document.documentElement.style.setProperty(
+    "--hero-background",
+    `url("${WEDDING_CONFIG.hero.backgroundImage}")`
+);
+// ========================================
+// END OPEN INVITATION
+// ========================================
 
+// ========================================
+// MAPS SLIDER
+// ========================================
 const track = document.querySelector(".maps-track");
 const slides = document.querySelectorAll(".map-slide");
 
@@ -147,8 +165,13 @@ dots.forEach((dot, index) => {
         showSlide(index);
     });
 });
+// ========================================
+// END MAPS SLIDER
+// ========================================
 
-//counting down
+// ========================================
+// COUNTING DOWN
+// ========================================
 // const weddingDate = new Date("2026-12-14T10:00:00+07:00").getTime();
 const weddingDate = new Date(
     window.WEDDING_CONFIG.countdown.targetDate
@@ -203,7 +226,24 @@ const countdown = setInterval(() => {
         String(seconds).padStart(2, "0");
 
 }, 1000);
+// ========================================
+// END COUNTING DOWN
+// ========================================
 
+// ========================================
+// LIVE STREAM
+// ========================================
+document.documentElement.style.setProperty(
+    "--stream-background",
+    `url("${WEDDING_CONFIG.livestream.backgroundImage}")`
+);
+// ========================================
+// END LIVE STREAM
+// ========================================
+
+// ========================================
+// LOVE STORY SLIDER
+// ========================================
 const timelineWrapper = document.querySelector(".love-timeline-wrapper");
 const timelineItems = document.querySelectorAll(".love-story-item");
 const timelineDots = document.querySelectorAll(".love-dot-slide");
@@ -231,8 +271,13 @@ timelineWrapper.addEventListener(
     "scroll",
     updateTimelineDots
 );
+// ========================================
+// END LOVE STORY SLIDER
+// ========================================
 
-//Gallery
+// ========================================
+// GALLERY SLIDER
+// ========================================
 const galleryWrapper = document.querySelector(".gallery-wrapper");
 const galleryItems = document.querySelectorAll(".gallery-item");
 const galleryDots = document.querySelectorAll(".gallery-dot");
@@ -374,7 +419,13 @@ nextGalleryButton?.addEventListener(
 
     }
 );
+// ========================================
+// END GALLERY SLIDER
+// ========================================
 
+// ========================================
+// GALLERY LIGHT BOX
+// ========================================
 const galleryLightbox =
     document.querySelector("#galleryLightbox");
 
@@ -393,7 +444,6 @@ const lightboxNext =
 
 let lightboxIndex = 0;
 
-// lightbox
 galleryItems.forEach((item, index) => {
 
     item.addEventListener("click", () => {
@@ -540,8 +590,13 @@ document.addEventListener(
 
     }
 );
+// ========================================
+// END GALLERY LIGHT BOX
+// ========================================
 
+// ========================================
 // FORM WISHES
+// ========================================
 // Google Apps Script Web App URL
 // const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZRI2b5XbR-q97_v5bcIox9WaNzuSI6xtQNbx1iure_t07Z3LwGroPiPvsD5297a-e/exec";
 // const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTklxXZlGkiLiSKuNUyh_l2KSTi4biKvN-LxOMgU7X2J7xPUUbC0RV_3vSYYBy7MPwMQ/exec";
@@ -686,7 +741,13 @@ form.addEventListener("submit", async event => {
 
 // Muat ucapan saat halaman dibuka
 fetchWishes();
+// ========================================
+// END FORM WISHES
+// ========================================
 
+// ========================================
+// NAVBAR
+// ========================================
 //Navbar
 document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.querySelector("#floatingNavbar");
@@ -770,8 +831,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach(section => sectionObserver.observe(section));
 });
+// ========================================
+// END NAVBAR
+// ========================================
 
+// ========================================
 // COPY BANK NUMBER
+// ========================================
 const copyNumberBtn = document.querySelector("#copyNumberBtn");
 const accountNumber = document.querySelector("#accountNumber");
 const copyFeedback = document.querySelector("#copyFeedback");
@@ -798,3 +864,6 @@ copyNumberBtn.addEventListener("click", async () => {
         console.error("Failed to copy account number:", error);
     }
 });
+// ========================================
+// END COPY BANK NUMBER
+// ========================================

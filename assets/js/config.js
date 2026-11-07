@@ -1,3 +1,4 @@
+// UBAH SEMUA DATA UNDANGAN LEWAT SINI
 const WEDDING_CONFIG = {
     // ========================================
     // HERO / COVER
@@ -7,7 +8,8 @@ const WEDDING_CONFIG = {
         coupleName: "Jessica & Michael",
         date: "MONDAY, DECEMBER 14 ,2026",
         description: "We joyfully invite you to join us in celebrating our love, commitment, and the beginning of our forever journey together.",
-        openButton: "OPEN INVITATION"
+        openButton: "OPEN INVITATION",
+        backgroundImage: "../images/wedding1.jpg"
     },
 
     // ========================================
@@ -120,7 +122,8 @@ const WEDDING_CONFIG = {
         description: "For our beloved friends and family who cannot make it in person, we invite you to join our ceremony virtually via high-definition broadcast.",
         date: "Monday, 14 December 2026",
         time: "09:00 WIB",
-        url: "https://www.youtube.com/live/3o7abhf9EAE?si=YhrTZQZhzlxn91sy"
+        url: "https://www.youtube.com/live/3o7abhf9EAE?si=YhrTZQZhzlxn91sy",
+        backgroundImage: "../images/wedding-venue.jpg"
     },
 
     // ========================================
