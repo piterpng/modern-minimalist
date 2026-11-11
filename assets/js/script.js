@@ -137,7 +137,7 @@ const dots = document.querySelectorAll(".map-dot");
 let currentSlide = 0;
 
 function showSlide(index) {
-
+    if (!track || !slides.length) return;
     if (index < 0) {
         currentSlide = slides.length - 1;
     } else if (index >= slides.length) {
@@ -145,25 +145,12 @@ function showSlide(index) {
     } else {
         currentSlide = index;
     }
-
-    track.style.transform =
-        `translateX(-${currentSlide * 100}%)`;
-
-    dots.forEach((dot, index) => {
-        dot.classList.toggle(
-            "active",
-            index === currentSlide
-        );
-    });
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot, idx) => dot.classList.toggle("active", idx === currentSlide));
 }
 
-prevButton.addEventListener("click", () => {
-    showSlide(currentSlide - 1);
-});
-
-nextButton.addEventListener("click", () => {
-    showSlide(currentSlide + 1);
-});
+prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
+nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
 
 dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
@@ -255,20 +242,20 @@ const timelineDots = document.querySelectorAll(".love-dot-slide");
 
 function updateTimelineDots() {
 
+    if (!timelineWrapper || !timelineItems.length || !timelineDots.length) return;
+
     const scrollLeft = timelineWrapper.scrollLeft;
-
-    const itemWidth = timelineItems[0].offsetWidth;
-
-    const currentSlide = Math.round(
-        scrollLeft / itemWidth
-    );
+    const itemWidth = timelineItems[0]?.offsetWidth || 0;
+    if (!itemWidth) return;
+    const currentSlide = Math.round(scrollLeft / itemWidth);
 
     timelineDots.forEach((dot, index) => {
-        dot.classList.toggle(
-            "active",
-            index === currentSlide
-        );
+        dot.classList.toggle("active", index === currentSlide);
     });
+
+    if (timelineWrapper) {
+        timelineWrapper.addEventListener("scroll", updateTimelineDots);
+    }
 
 }
 
@@ -729,7 +716,7 @@ form.addEventListener("submit", async event => {
         });
 
         form.reset();
-        submitBtn.textContent = "SENT!";
+        submitBtn.textContent = "SUBMITTED";
 
         // Beri waktu agar data tersimpan sebelum mengambil ulang.
         await new Promise(resolve => setTimeout(resolve, 1200));
@@ -737,7 +724,7 @@ form.addEventListener("submit", async event => {
 
     } catch (error) {
         console.error("Gagal mengirim ucapan:", error);
-        alert("Gagal mengirim ucapan. Silakan periksa koneksi internet.");
+        submitBtn.textContent = "FAILED";
     } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
@@ -847,28 +834,24 @@ const copyNumberBtn = document.querySelector("#copyNumberBtn");
 const accountNumber = document.querySelector("#accountNumber");
 const copyFeedback = document.querySelector("#copyFeedback");
 
-copyNumberBtn.addEventListener("click", async () => {
-    // Hilangkan tanda hubung saat menyalin
-    const number = accountNumber.textContent.trim().replace(/-/g, "");
-
-    try {
-        await navigator.clipboard.writeText(number);
-
-        copyFeedback.textContent = "Account number copied!";
-        copyNumberBtn.querySelector(".copy-btn-text").textContent = "Copied!";
-
-        setTimeout(() => {
-            copyFeedback.textContent = "";
-            copyNumberBtn.querySelector(".copy-btn-text").textContent =
-                "Copy Number";
-        }, 2000);
-    } catch (error) {
-        copyFeedback.textContent =
-            "Unable to copy. Please copy the number manually.";
-
-        console.error("Failed to copy account number:", error);
-    }
-});
+if (copyNumberBtn && accountNumber && copyFeedback) {
+    copyNumberBtn.addEventListener("click", async () => {
+        const number = accountNumber.textContent.trim().replace(/-/g, "");
+        try {
+            await navigator.clipboard.writeText(number);
+            copyFeedback.textContent = "Account number copied!";
+            const btnText = copyNumberBtn.querySelector(".copy-btn-text");
+            if (btnText) btnText.textContent = "Copied!";
+            setTimeout(() => {
+                copyFeedback.textContent = "";
+                if (btnText) btnText.textContent = "Copy Number";
+            }, 2000);
+        } catch (err) {
+            copyFeedback.textContent = "Gagal menyalin otomatis. Silakan salin manual.";
+            console.error("Clipboard Error:", err);
+        }
+    });
+}
 // ========================================
 // END COPY BANK NUMBER
 // ========================================
